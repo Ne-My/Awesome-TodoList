@@ -3,6 +3,7 @@ defineProps<{
 	icon?: string,
 	name: string,
 	time?: string
+	checked?: boolean
 }>()
 </script>
 
@@ -16,7 +17,7 @@ defineProps<{
 		<div class="flex gap-3 items-center">
 			<span v-if="time" class="text-slate-400 text-[14px]">{{ time }}</span>
 			<div class="flex gap-2.5 items-center">
-				<input type="checkbox" class="size-5" />
+				<input type="checkbox" class="size-5" :checked="checked" />
 				<img src="/icons/more-vertical.svg" />
 			</div>
 		</div>
