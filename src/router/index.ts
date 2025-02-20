@@ -1,4 +1,4 @@
-import HomeView from '@/pages/HomeView.vue'
+import HomeView from '@/pages/index.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 export const router = createRouter({
