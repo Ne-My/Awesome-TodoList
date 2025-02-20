@@ -13,24 +13,33 @@ const todoStore = useTodoStore()
 
 <template>
   <div
-    class="group bg-white flex justify-between items-center rounded-xl shadow-lg px-4 py-5 cursor-pointer border border-slate-300"
+    class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden"
+    @click="checked = !checked"
   >
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 overflow-hidden">
       <div
-        class="size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
+        class="shrink-0 size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
         :class="{ 'bg-emerald-200 border-0': checked }"
-        @click="checked = !checked"
       >
         <IconCheck v-if="checked" class="size-4 [&>path]:stroke-emerald-500" />
       </div>
 
-      <span class="text-slate-700 text-sm font-semibold" :class="{ 'line-through text-rose-400': checked }">{{
-        name
-      }}</span>
+      <div
+        class="text-sm font-semibold transition-colors before-line-through line-clamp-1"
+        :class="checked ? 'text-slate-400 before:w-[100%]' : 'text-slate-700 before:w-0'"
+      >
+        {{ name }}
+      </div>
     </div>
 
-    <div class="flex gap-3 items-center">
-      <IconTrash class="cursor-pointer [&>path]:hover:stroke-rose-600" @click="todoStore.TodoDelete(id)" />
+    <div>
+      <IconTrash class="cursor-pointer size-5 [&>path]:hover:stroke-rose-600" @click="todoStore.TodoDelete(id)" />
     </div>
   </div>
 </template>
+
+<style lang="postcss">
+.before-line-through {
+  @apply relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:bg-slate-400 before:h-[1.5px] before:transition-[width];
+}
+</style>
