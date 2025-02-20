@@ -1,9 +1,5 @@
 <script setup lang="ts">
-// @ts-ignore
 import IconPlus from '@/components/icons/IconPlus.vue'
-// @ts-ignore
-import IconSmile from '@/components/icons/IconCheck.vue'
-// @ts-ignore
 import { useTodoStore } from '@/stores/todoStore'
 import { ref } from 'vue'
 

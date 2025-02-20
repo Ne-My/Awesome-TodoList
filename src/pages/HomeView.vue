@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
-// @ts-ignore
 import AddTodoField from '@/components/AddTodoField.vue'
-// @ts-ignore
 import Todos from '@/components/Todos.vue'
 </script>
 

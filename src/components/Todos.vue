@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import draggableComponent from 'vuedraggable'
-// @ts-ignore
 import TodosItem from '@/components/TodosItem.vue'
-// @ts-ignore
 import { useTodoStore } from '@/stores/todoStore'
 
 const todoStore = useTodoStore()

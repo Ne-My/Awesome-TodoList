@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-ignore
 import { useTodoStore } from '@/stores/todoStore'
 import IconTrash from '@/components/icons/IconTrash.vue'
 import IconCheck from '@/components/icons/IconCheck.vue'

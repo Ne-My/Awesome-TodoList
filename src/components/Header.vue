@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-ignore
 import { useTodoStore } from '@/stores/todoStore'
 import { storeToRefs } from 'pinia'
 
