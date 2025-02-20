@@ -1,18 +1,29 @@
 <script setup lang="ts">
-import draggableComponent from 'vuedraggable'
+import VueDraggable from 'vuedraggable'
 import TodosItem from '@/components/TodosItem.vue'
 import { useTodoStore } from '@/stores/todoStore'
+import { storeToRefs } from 'pinia'
 
-const todoStore = useTodoStore()
+const { todos } = storeToRefs(useTodoStore())
 </script>
 
 <template>
-  <div class="h-[40vh] overflow-y-auto px-3 thin-scroll pb-7">
-    <draggableComponent v-model="todoStore.todos" item-key="id" group="todos" class="flex flex-col gap-3">
+  <div class="h-[40vh] overflow-y-scroll px-3 thin-scroll pb-7">
+    <VueDraggable
+      v-model="todos"
+      item-key="id"
+      group="todos"
+      class="flex flex-col gap-3"
+      :component-data="{
+        tag: 'ul',
+        type: 'transition-group',
+        name: 'flip-list',
+      }"
+    >
       <template #item="{ element: todo }">
-        <TodosItem :key="todo.id" :id="todo.id" :name="todo.name" :done="todo.checked" />
+        <TodosItem :key="todo.id" :todo />
       </template>
-    </draggableComponent>
+    </VueDraggable>
   </div>
 </template>
 
@@ -25,5 +36,8 @@ const todoStore = useTodoStore()
 .list-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+.flip-list-move {
+  transition: transform 0.5s;
 }
 </style>

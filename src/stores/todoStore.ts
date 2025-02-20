@@ -20,10 +20,6 @@ export const useTodoStore = defineStore(
       })
     }
 
-    const todoChangeState = (id: string, checked: boolean) => {
-      todos.value.find((obj) => obj.id === id)!.checked = checked
-    }
-
     const TodoDelete = (id: string): boolean => {
       todos.value = todos.value.filter((item) => item.id !== id)
       return true
@@ -37,7 +33,6 @@ export const useTodoStore = defineStore(
       leftTodosCount,
 
       todoAddItem,
-      todoChangeState,
       TodoDelete,
     }
   },
