@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import draggableComponent from 'vuedraggable'
 // @ts-ignore
-import TodoListItem from '@/components/TodoListItem.vue'
+import TodosItem from '@/components/TodosItem.vue'
 // @ts-ignore
 import { useTodoStore } from '@/stores/todoStore'
 
@@ -12,7 +12,7 @@ const todoStore = useTodoStore()
   <div class="h-[40vh] overflow-y-auto px-3 thin-scroll pb-7">
     <draggableComponent v-model="todoStore.todos" item-key="id" group="todos" class="flex flex-col gap-3">
       <template #item="{ element: todo }">
-        <TodoListItem :key="todo.id" :id="todo.id" :name="todo.name" :done="todo.done" />
+        <TodosItem :key="todo.id" :id="todo.id" :name="todo.name" :done="todo.done" />
       </template>
     </draggableComponent>
   </div>
