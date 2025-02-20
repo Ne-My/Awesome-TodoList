@@ -1,6 +1,6 @@
 import type { Todo } from '@/types'
 import { defineStore } from 'pinia'
-import { v4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { computed, reactive } from 'vue'
 
 export const useTodoStore = defineStore(
@@ -20,7 +20,7 @@ export const useTodoStore = defineStore(
 
     const todoAddItem = (name: string, checked: boolean = false): void => {
       todos.push({
-        id: v4(),
+        id: uuidv4(),
         name,
         checked,
       })
