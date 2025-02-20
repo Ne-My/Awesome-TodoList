@@ -25,9 +25,7 @@ export const useTodoStore = defineStore(
     }
 
     const TodoDelete = (id: string): boolean => {
-      const todoIndex = todos.value.findIndex((obj) => obj.id === id)
-      if (!todoIndex) return false
-      todos.value.splice(todoIndex, 1)
+      todos.value = todos.value.filter((item) => item.id !== id)
       return true
     }
 
