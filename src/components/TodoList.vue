@@ -9,7 +9,7 @@ const todoStore = useTodoStore()
 </script>
 
 <template>
-  <div class="h-[40vh] overflow-y-scroll">
+  <div class="h-[40vh] overflow-y-auto px-3">
     <draggableComponent v-model="todoStore.todos" item-key="id" group="todos" class="flex flex-col gap-3">
       <template #item="{ element: todo }">
         <TodoListItem :key="todo.id" :id="todo.id" :name="todo.name" :done="todo.done" />
