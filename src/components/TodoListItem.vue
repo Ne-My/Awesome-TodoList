@@ -14,7 +14,9 @@ const todoStore = useTodoStore()
 </script>
 
 <template>
-  <div class="group bg-white flex justify-between items-center rounded-xl shadow-md px-4 py-5 cursor-pointer">
+  <div
+    class="group bg-white flex justify-between items-center rounded-xl shadow-lg px-4 py-5 cursor-pointer border border-slate-300"
+  >
     <div class="flex items-center gap-3">
       <div
         class="size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
