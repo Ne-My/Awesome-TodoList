@@ -1,25 +1,36 @@
 <script setup lang="ts">
+// @ts-ignore
+import { useTodoStore } from '@/stores/todoStore'
+import IconTrash from './icons/IconTrash.vue'
+import IconCheck from './icons/IconCheck.vue'
+
 defineProps<{
-	icon?: string,
-	name: string,
-	time?: string
-	checked?: boolean
+  id: string
+  name: string
+  done: boolean
 }>()
+
+const todoStore = useTodoStore()
 </script>
 
 <template>
-	<div class="bg-white flex justify-between items-center rounded-xl shadow-sm px-4 py-5">
-		<div class="flex items-center gap-3">
-			<div class="size-6"><img v-if="icon" :src="icon" /></div>
-			<span class="text-slate-700 text-[16px] font-semibold">{{ name }}</span>
-		</div>
+  <div class="group bg-white flex justify-between items-center rounded-xl shadow-md px-4 py-5 cursor-pointer">
+    <div class="flex items-center gap-3">
+      <div
+        class="size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
+        :class="{ 'bg-emerald-200 border-0': done }"
+        @click="() => todoStore.todoChangeState(id, !done)"
+      >
+        <IconCheck v-if="done" class="size-4 [&>path]:stroke-emerald-500" />
+      </div>
 
-		<div class="flex gap-3 items-center">
-			<span v-if="time" class="text-slate-400 text-[14px]">{{ time }}</span>
-			<div class="flex gap-2.5 items-center">
-				<input type="checkbox" class="size-5" :checked="checked" />
-				<img src="/icons/more-vertical.svg" />
-			</div>
-		</div>
-	</div>
+      <span class="text-slate-700 text-sm font-semibold" :class="{ 'line-through text-rose-400': done }">{{
+        name
+      }}</span>
+    </div>
+
+    <div class="flex gap-3 items-center">
+      <IconTrash class="cursor-pointer [&>path]:hover:stroke-rose-600" @click="todoStore.TodoDelete(id)" />
+    </div>
+  </div>
 </template>
