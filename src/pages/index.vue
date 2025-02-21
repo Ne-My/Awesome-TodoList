@@ -5,7 +5,7 @@ import Todos from '@/components/Todos.vue'
 </script>
 
 <template>
-  <div class="flex flex-col gap-9 bg-white rounded-xl shadow-md min-w-[500px] p-8 pb-12 relative">
+  <div class="flex flex-col gap-9 bg-white rounded-xl shadow-md w-full max-w-[500px] p-8 pb-12 relative">
     <Header />
 
     <Todos />
