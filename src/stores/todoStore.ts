@@ -1,44 +1,38 @@
 import type { Todo } from '@/types'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 export const useTodoStore = defineStore(
   'todo',
   () => {
-    const todos = ref<Todo[]>([])
+    const completedTodos = ref<Todo[]>([])
+    const unCompletedTodos = ref<Todo[]>([])
 
-    const allTodosCount = computed(() => todos.value.length)
-    const completedTodosCount = computed(() => todos.value.filter((obj) => obj.checked === true).length)
-    const leftTodosCount = computed(() => allTodosCount.value - completedTodosCount.value)
-
-    const todoAddItem = (name: string, checked: boolean = false): void => {
-      todos.value.push({
+    const addTodo = (name: string, checked: boolean = false): void => {
+      unCompletedTodos.value.unshift({
         id: uuidv4(),
         name,
         checked,
       })
     }
 
-    const TodoDelete = (id: string): boolean => {
-      todos.value = todos.value.filter((item) => item.id !== id)
-      return true
+    const deleteTodo = (id: Todo['id']) => {
+      unCompletedTodos.value = unCompletedTodos.value.filter((item) => item.id !== id)
+      completedTodos.value = completedTodos.value.filter((item) => item.id !== id)
     }
 
     return {
-      todos,
+      completedTodos,
+      unCompletedTodos,
 
-      allTodosCount,
-      completedTodosCount,
-      leftTodosCount,
-
-      todoAddItem,
-      TodoDelete,
+      addTodo,
+      deleteTodo,
     }
   },
   {
     persist: {
-      pick: ['todos'],
+      pick: ['completedTodos', 'unCompletedTodos'],
     },
   },
 )
