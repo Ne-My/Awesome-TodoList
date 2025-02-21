@@ -16,7 +16,7 @@ const todoStore = useTodoStore()
     class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden"
     @click="checked = !checked"
   >
-    <div class="flex items-center gap-2 overflow-hidden">
+    <div class="flex items-center gap-2 overflow-hidden w-full">
       <div
         class="shrink-0 size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
         :class="{ 'bg-emerald-200 border-0': checked }"
@@ -25,7 +25,7 @@ const todoStore = useTodoStore()
       </div>
 
       <div
-        class="text-sm font-semibold transition-colors before-line-through line-clamp-1"
+        class="text-sm font-semibold transition-colors before-line-through line-clamp-1 w-full"
         :class="checked ? 'text-slate-400 before:w-[100%]' : 'text-slate-700 before:w-0'"
       >
         {{ name }}
