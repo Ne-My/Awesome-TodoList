@@ -9,7 +9,7 @@ const inputVal = ref('')
 const addTodo = () => {
   const val = inputVal.value
   if (val === '') return
-  todoStore.todoAddItem(val)
+  todoStore.addTodo(val)
   inputVal.value = ''
 }
 </script>
