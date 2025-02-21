@@ -15,11 +15,13 @@ const addTodo = () => {
 </script>
 
 <template>
-  <div class="absolute bottom-4 sm:-bottom-[25px] [--margin-from-side:32px] w-[calc(100%-var(--margin-from-side)*2)]">
+  <div
+    class="absolute bottom-4 sm:-bottom-[25px] [--margin-from-side:32px] w-[calc(100%-var(--margin-from-side)*2)] bg-slate-900 rounded-lg"
+  >
     <input
       @keypress.enter="addTodo"
       v-model="inputVal"
-      class="w-full bg-slate-900 text-slate-50 outline-none py-4 pr-12 pl-6 rounded-lg text-[14px]"
+      class="w-full bg-transparent text-slate-50 outline-none py-4 pr-12 pl-6 text-[14px]"
       type="text"
       placeholder="say somthing"
     />
