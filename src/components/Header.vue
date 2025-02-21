@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useTodoStore } from '@/stores/todoStore'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const todoStore = useTodoStore()
-const { allTodosCount, completedTodosCount, leftTodosCount } = storeToRefs(todoStore)
+const { completedTodos, unCompletedTodos } = storeToRefs(todoStore)
+const allTodosLength = computed(() => completedTodos.value.length + unCompletedTodos.value.length)
 </script>
 
 <template>
@@ -14,9 +16,9 @@ const { allTodosCount, completedTodosCount, leftTodosCount } = storeToRefs(todoS
     </div>
 
     <div class="flex flex-wrap justify-center gap-3">
-      <span class="info-badge bg-lime-400">All : {{ allTodosCount }}</span>
-      <span class="info-badge bg-rose-400">left : {{ leftTodosCount }}</span>
-      <span class="info-badge bg-indigo-400">completed : {{ completedTodosCount }}</span>
+      <span class="info-badge bg-lime-500">All : {{ allTodosLength }}</span>
+      <span class="info-badge bg-rose-500">Remain : {{ unCompletedTodos.length }}</span>
+      <span class="info-badge bg-indigo-400">completed : {{ completedTodos.length }}</span>
     </div>
   </div>
 </template>
