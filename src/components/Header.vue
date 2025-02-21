@@ -13,10 +13,10 @@ const { allTodosCount, completedTodosCount, leftTodosCount } = storeToRefs(todoS
       <span class="text-[12px] text-slate-400">Add anything you want and have full controll on them!</span>
     </div>
 
-    <div class="flex gap-3 *:min-w-[120px] *:rounded-full *:text-white *:p-2 *:capitalize *:text-center *:text-[14px]">
-      <span class="bg-lime-400">All : {{ allTodosCount }}</span>
-      <span class="bg-indigo-400">completed : {{ completedTodosCount }}</span>
-      <span class="bg-rose-400">left : {{ leftTodosCount }}</span>
+    <div class="flex flex-wrap justify-center gap-3">
+      <span class="info-badge bg-lime-400">All : {{ allTodosCount }}</span>
+      <span class="info-badge bg-rose-400">left : {{ leftTodosCount }}</span>
+      <span class="info-badge bg-indigo-400">completed : {{ completedTodosCount }}</span>
     </div>
   </div>
 </template>
