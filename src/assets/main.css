@@ -13,6 +13,6 @@ html {
 }
 @layer components {
   .info-badge {
-    @apply rounded-full text-white py-2 px-6 sm:min-w-[120px] sm:px-0 capitalize text-center text-[14px];
+    @apply rounded-full text-white py-2 px-6 sm:min-w-[120px] sm:px-3 capitalize text-center text-[14px] font-medium;
   }
 }
