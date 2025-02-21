@@ -8,7 +8,7 @@ const { todos } = storeToRefs(useTodoStore())
 </script>
 
 <template>
-  <div class="h-[40vh] overflow-y-scroll px-3 thin-scroll pb-7">
+  <div class="h-[58vh] sm:h-[45vh] overflow-y-scroll px-3 thin-scroll pb-4">
     <VueDraggable
       v-model="todos"
       item-key="id"
