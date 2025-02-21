@@ -15,7 +15,7 @@ const addTodo = () => {
 </script>
 
 <template>
-  <div class="absolute -bottom-[25px] w-[calc(100%-32px*2)]">
+  <div class="absolute bottom-4 sm:-bottom-[25px] [--margin-from-side:32px] w-[calc(100%-var(--margin-from-side)*2)]">
     <input
       @keypress.enter="addTodo"
       v-model="inputVal"

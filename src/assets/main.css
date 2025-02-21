@@ -2,12 +2,6 @@
 @tailwind utilities;
 @tailwind components;
 
-@layer base {
-  body {
-    @apply bg-indigo-500 font-poppins min-h-screen grid place-items-center;
-  }
-}
-
 @layer utilities {
   .thin-scroll {
     scrollbar-width: thin;
