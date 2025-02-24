@@ -6,6 +6,9 @@
   .thin-scroll {
     scrollbar-width: thin;
   }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
 }
 
 html {
@@ -13,6 +16,6 @@ html {
 }
 @layer components {
   .info-badge {
-    @apply rounded-full text-white py-2 px-6 sm:min-w-[120px] sm:px-3 capitalize text-center text-[14px] font-medium;
+    @apply rounded-full text-white py-2 px-6 sm:min-w-[125px] sm:px-3 capitalize text-center text-[14px] font-medium;
   }
 }

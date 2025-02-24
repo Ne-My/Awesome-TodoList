@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
-import AddTodoField from '@/components/AddTodoField.vue'
+import TodoInput from '@/components/TodoInput/index.vue'
 import Todos from '@/components/Todos.vue'
 </script>
 
@@ -11,7 +11,7 @@ import Todos from '@/components/Todos.vue'
     >
       <Header />
       <Todos />
-      <AddTodoField />
+      <TodoInput />
     </div>
   </div>
 </template>

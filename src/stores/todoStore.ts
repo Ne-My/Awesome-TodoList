@@ -8,11 +8,12 @@ export const useTodoStore = defineStore(
   () => {
     const todos = ref<Todo[]>([])
 
-    const addTodo = (name: string, checked: boolean = false): void => {
+    const addTodo = (name: string, icon: number = 0): void => {
       todos.value.unshift({
         id: uuidv4(),
         name,
-        checked,
+        icon,
+        checked: false,
       })
     }
 

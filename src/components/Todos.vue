@@ -18,7 +18,6 @@ const drag = ref(false)
       @start="drag = true"
       target=".sort-target"
       @end="nextTick(() => (drag = false))"
-      :disabled="true"
     >
       <transition-group tag="div" :name="!drag ? 'todo' : undefined" class="sort-target flex flex-col gap-3 relative">
         <TodosItem v-for="todo in todos" :key="todo.id" :todo />
