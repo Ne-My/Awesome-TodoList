@@ -18,15 +18,17 @@ const addTodo = () => {
 const showFieldEmptyTooltipErrorOnInput = ref(false)
 let tooltipTimeoutInstance: number
 function showFieldEmptyTooltip() {
-  // first hide previous tooltip if exists then show new one
-  showFieldEmptyTooltipErrorOnInput.value = false
+  closeFieldEmptyTooltip()
   nextTick(() => {
     showFieldEmptyTooltipErrorOnInput.value = true
-    if (tooltipTimeoutInstance) clearTimeout(tooltipTimeoutInstance)
     tooltipTimeoutInstance = setTimeout(() => {
       showFieldEmptyTooltipErrorOnInput.value = false
     }, 3000)
   })
+}
+function closeFieldEmptyTooltip() {
+  showFieldEmptyTooltipErrorOnInput.value = false
+  if (tooltipTimeoutInstance) clearTimeout(tooltipTimeoutInstance)
 }
 watch(inputVal, () => {
   showFieldEmptyTooltipErrorOnInput.value = false
@@ -41,7 +43,8 @@ watch(inputVal, () => {
       <Transition name="fade">
         <div
           v-if="showFieldEmptyTooltipErrorOnInput"
-          class="absolute -top-12 left-0 bg-red-400 font-medium text-xs text-white rounded-lg py-3 px-8 z-50 drop-shadow-md"
+          class="absolute -top-16 left-0 bg-red-400 font-medium text-xs text-white rounded-lg py-3 px-8 z-50 drop-shadow-md"
+          @click="closeFieldEmptyTooltip"
         >
           <span class="absolute left-1/2 -bottom-1 -translate-x-1/2 rotate-45 size-2 bg-red-400"></span>
           Field is empty!
