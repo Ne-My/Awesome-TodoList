@@ -52,7 +52,7 @@ watch(inputVal, () => {
         v-model="inputVal"
         class="w-full bg-transparent text-slate-50 outline-none py-4 pr-12 pl-6 text-[14px]"
         type="text"
-        placeholder="say somthing"
+        placeholder="Todo: Shower, gym, and more..."
       />
     </div>
     <div
