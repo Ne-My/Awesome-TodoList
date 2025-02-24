@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconPlus from '@/components/icons/IconPlus.vue'
 import { useTodoStore } from '@/stores/todoStore'
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 
 const todoStore = useTodoStore()
 const inputVal = ref('')
@@ -28,6 +28,9 @@ function showFieldEmptyTooltip() {
     }, 3000)
   })
 }
+watch(inputVal, () => {
+  showFieldEmptyTooltipErrorOnInput.value = false
+})
 </script>
 
 <template>
