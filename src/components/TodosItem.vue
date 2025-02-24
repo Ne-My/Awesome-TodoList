@@ -3,39 +3,25 @@ import { useTodoStore } from '@/stores/todoStore'
 import IconTrash from '@/components/icons/IconTrash.vue'
 import IconCheck from '@/components/icons/IconCheck.vue'
 import type { Todo } from '@/types'
-import { toRefs, type HTMLAttributes } from 'vue'
+import { toRefs } from 'vue'
 import { storeToRefs } from 'pinia'
 
-const props = defineProps<{ todo: Todo; class: HTMLAttributes['class'] }>()
+const props = defineProps<{ todo: Todo }>()
 const { id, name, checked } = toRefs(props.todo)
 
 const todoStore = useTodoStore()
 const { deleteTodo } = todoStore
-const { completedTodos, unCompletedTodos } = storeToRefs(todoStore)
-
-function checkItem() {
-  const isTodoChecked = !checked.value
-  checked.value = isTodoChecked
-  if (isTodoChecked) {
-    unCompletedTodos.value = unCompletedTodos.value.filter((item) => item.id !== id.value)
-    completedTodos.value.unshift(props.todo)
-  } else {
-    completedTodos.value = completedTodos.value.filter((item) => item.id !== id.value)
-    unCompletedTodos.value.unshift(props.todo)
-  }
-}
 </script>
 
 <template>
   <div
     class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden"
-    :class="props.class"
   >
     <div class="flex items-center gap-2 overflow-hidden w-full">
       <div
         class="shrink-0 size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
         :class="{ 'bg-emerald-200 border-0': checked }"
-        @click="checkItem"
+        @click="checked = !checked"
       >
         <IconCheck v-if="checked" class="size-4 [&>path]:stroke-emerald-500" />
       </div>

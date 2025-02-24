@@ -4,8 +4,9 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
 const todoStore = useTodoStore()
-const { completedTodos, unCompletedTodos } = storeToRefs(todoStore)
-const allTodosLength = computed(() => completedTodos.value.length + unCompletedTodos.value.length)
+const { todos } = storeToRefs(todoStore)
+const compeletedTodosCount = computed(() => todos.value.filter((item) => item.checked).length)
+const unCompeletedTodosCount = computed(() => todos.value.length - compeletedTodosCount.value)
 </script>
 
 <template>
@@ -16,9 +17,9 @@ const allTodosLength = computed(() => completedTodos.value.length + unCompletedT
     </div>
 
     <div class="flex flex-wrap justify-center gap-3">
-      <span class="info-badge bg-lime-500">All : {{ allTodosLength }}</span>
-      <span class="info-badge bg-rose-500">Remain : {{ unCompletedTodos.length }}</span>
-      <span class="info-badge bg-indigo-400">completed : {{ completedTodos.length }}</span>
+      <span class="info-badge bg-lime-500">All : {{ todos.length }}</span>
+      <span class="info-badge bg-rose-500">Remain : {{ compeletedTodosCount }}</span>
+      <span class="info-badge bg-indigo-400">completed : {{ unCompeletedTodosCount }}</span>
     </div>
   </div>
 </template>

@@ -6,11 +6,10 @@ import { ref } from 'vue'
 export const useTodoStore = defineStore(
   'todo',
   () => {
-    const completedTodos = ref<Todo[]>([])
-    const unCompletedTodos = ref<Todo[]>([])
+    const todos = ref<Todo[]>([])
 
     const addTodo = (name: string, checked: boolean = false): void => {
-      unCompletedTodos.value.unshift({
+      todos.value.unshift({
         id: uuidv4(),
         name,
         checked,
@@ -18,13 +17,11 @@ export const useTodoStore = defineStore(
     }
 
     const deleteTodo = (id: Todo['id']) => {
-      unCompletedTodos.value = unCompletedTodos.value.filter((item) => item.id !== id)
-      completedTodos.value = completedTodos.value.filter((item) => item.id !== id)
+      todos.value = todos.value.filter((item) => item.id !== id)
     }
 
     return {
-      completedTodos,
-      unCompletedTodos,
+      todos,
 
       addTodo,
       deleteTodo,
@@ -32,7 +29,7 @@ export const useTodoStore = defineStore(
   },
   {
     persist: {
-      pick: ['completedTodos', 'unCompletedTodos'],
+      pick: ['todos'],
     },
   },
 )
