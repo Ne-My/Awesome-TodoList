@@ -32,7 +32,7 @@ onClickOutside(modal, () => {
       </div>
     </Transition>
     <div
-      class="h-full flex-center cursor-pointer rounded-[5px] bg-transparent transition-colors hover:bg-[#eee] [&_path]:hover:stroke-slate-600"
+      class="h-full flex-center cursor-pointer rounded-[5px] bg-transparent transition-colors hover:bg-[#eee] hover:[&_path]:stroke-slate-600"
       @click="showSelectIconTooltip = !showSelectIconTooltip"
     >
       <IconSmile />

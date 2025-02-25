@@ -36,7 +36,7 @@ const { deleteTodo } = todoStore
     </div>
 
     <div>
-      <IconTrash class="cursor-pointer size-5 [&>path]:hover:stroke-rose-600" @click="deleteTodo(id)" />
+      <IconTrash class="cursor-pointer size-5 hover:[&>path]:stroke-rose-600" @click="deleteTodo(id)" />
     </div>
   </div>
 </template>

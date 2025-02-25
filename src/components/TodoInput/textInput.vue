@@ -19,7 +19,7 @@ defineEmits(['close-field-empty-tooltip', 'add-todo'])
     <input
       @keypress.enter="$emit('add-todo')"
       v-model="inputVal"
-      class="w-full bg-transparent text-slate-50 outline-none text-[14px]"
+      class="w-full bg-transparent text-slate-50 outline-hidden text-[14px]"
       type="text"
       placeholder="Todo: Shower, gym, and more..."
     />

@@ -1,21 +1,18 @@
-@tailwind base;
-@tailwind utilities;
-@tailwind components;
+@import 'tailwindcss';
 
-@layer utilities {
-  .thin-scroll {
-    scrollbar-width: thin;
-  }
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
+@utility thin-scroll {
+  scrollbar-width: thin;
 }
 
-html {
-  font-family: Poppins;
+@utility flex-center {
+  @apply flex items-center justify-center;
 }
+@utility info-badge {
+  @apply rounded-full text-white py-2 px-6 sm:min-w-[125px] sm:px-3 capitalize text-center text-[14px] font-medium;
+}
+
 @layer components {
-  .info-badge {
-    @apply rounded-full text-white py-2 px-6 sm:min-w-[125px] sm:px-3 capitalize text-center text-[14px] font-medium;
+  html {
+    font-family: Poppins;
   }
 }

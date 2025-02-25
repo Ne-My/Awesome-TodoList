@@ -5,7 +5,7 @@ defineEmits(['add-todo'])
 
 <template>
   <div
-    class="flex-center h-full aspect-square cursor-pointer rounded-[5px] bg-transparent transition-colors hover:bg-[#eee] [&_path]:hover:stroke-slate-600"
+    class="flex-center h-full aspect-square cursor-pointer rounded-[5px] bg-transparent transition-colors hover:bg-[#eee] hover:[&_path]:stroke-slate-600"
     @click="$emit('add-todo')"
   >
     <IconPlus />
