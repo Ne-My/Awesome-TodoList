@@ -20,7 +20,7 @@ defineEmits(['add-todo'])
     <Transition name="fade">
       <div
         v-if="showEmptyFieldError"
-        class="absolute -top-16 left-0 bg-red-400 font-medium text-xs text-white rounded-lg py-3 px-8 z-50 drop-shadow-md cursor-pointer"
+        class="absolute -top-16 left-0 bg-red-400 font-medium text-xs text-white rounded-lg py-3 px-8 z-30 drop-shadow-md cursor-pointer"
         @click="showEmptyFieldError = false"
       >
         <span class="absolute left-1/2 -bottom-1 -translate-x-1/2 rotate-45 size-2 bg-[inherit]"></span>
