@@ -3,6 +3,7 @@ import IconSmile from '@/components/icons/IconSmile.vue'
 import { onClickOutside } from '@vueuse/core'
 import { inject, useTemplateRef } from 'vue'
 import { SELECTED_ICON_NUMBER, SHOW_SELECT_ICON_TOOLTIP } from '.'
+import SelectIconsList from '@/components/SelectIconsList.vue'
 
 const showSelectIconTooltip = inject(SHOW_SELECT_ICON_TOOLTIP)!
 
@@ -25,18 +26,7 @@ function selectIconAndCloseList(iconId: number) {
         v-if="showSelectIconTooltip"
         class="absolute bottom-16 left-0 bg-white font-medium text-xs text-slate-900 rounded-lg px-3 py-4 z-30 drop-shadow-2xl border-1 border-slate-300"
       >
-        <div
-          class="pr-3 grid grid-cols-4 md:grid-cols-6 gap-2 w-max max-h-[160px] overflow-y-auto overflow-x-hidden thin-scroll"
-        >
-          <div
-            v-for="i in 31"
-            class="size-6 cursor-pointer bg-transparent transition-colors box-content rounded-md p-2 hover:bg-slate-100 border"
-            :class="selectedIconNumber === i ? 'bg-slate-100 border-slate-300' : 'border-transparent'"
-            @click="selectIconAndCloseList(i)"
-          >
-            <img :src="`/icons/image ${i}.png`" />
-          </div>
-        </div>
+        <SelectIconsList :selected-icon-number="selectedIconNumber" @icon-select="selectIconAndCloseList" />
         <span class="absolute left-5 -bottom-1 rotate-45 size-2 bg-[inherit]"></span>
       </div>
     </Transition>
