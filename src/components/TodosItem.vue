@@ -41,8 +41,12 @@ const { deleteTodo } = todoStore
   </div>
 </template>
 
-<style lang="postcss">
+<style>
+@reference '@/assets/main.css';
 .before-line-through {
-  @apply relative before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:bg-slate-400 before:h-[1.5px] before:transition-[width];
+  @apply relative;
+  &::before {
+    @apply content-[''] absolute top-1/2 left-0 -translate-y-1/2 bg-slate-400 h-[1.5px] transition-[width];
+  }
 }
 </style>
