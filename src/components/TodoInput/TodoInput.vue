@@ -56,7 +56,7 @@ watch(inputVal, () => {
     class="absolute bottom-4 sm:-bottom-[25px] [--margin-from-side:32px] w-[calc(100%-var(--margin-from-side)*2)] bg-slate-900 rounded-lg p-1 h-14 flex items-center gap-1"
   >
     <selectIconButton />
-    <div v-if="selectedIconNumber > 0" class="size-7 mr-1 flex-center cursor-pointer">
+    <div v-if="selectedIconNumber > 0" class="size-6 shrink-0 mr-1 flex-center cursor-pointer">
       <img @click="selectedIconNumber = 0" :src="`/icons/image ${selectedIconNumber}.png`" />
     </div>
     <textInput @add-todo="addTodo" />
