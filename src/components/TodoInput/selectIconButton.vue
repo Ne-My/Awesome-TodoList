@@ -23,9 +23,11 @@ function selectIconAndCloseList(iconId: number) {
     <Transition name="fade">
       <div
         v-if="showSelectIconTooltip"
-        class="absolute bottom-16 left-0 bg-white font-medium text-xs text-slate-900 rounded-lg p-3 z-50 drop-shadow-md"
+        class="absolute bottom-16 left-0 bg-white font-medium text-xs text-slate-900 rounded-lg px-3 py-4 z-50 drop-shadow-2xl border-1 border-slate-300"
       >
-        <div class="px-3 grid grid-cols-6 gap-2 w-max max-h-[160px] overflow-y-auto overflow-x-hidden">
+        <div
+          class="pr-3 grid grid-cols-4 md:grid-cols-6 gap-2 w-max max-h-[160px] overflow-y-auto overflow-x-hidden thin-scroll"
+        >
           <div
             v-for="i in 31"
             class="size-6 cursor-pointer bg-transparent transition-colors box-content rounded-md p-2 hover:bg-slate-100 border"
