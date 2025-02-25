@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue'
-import TodoInput from '@/components/TodoInput/index.vue'
+import { TodoInput } from '@/components/TodoInput'
 import Todos from '@/components/Todos.vue'
 </script>
 

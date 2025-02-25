@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import IconSmile from '@/components/icons/IconSmile.vue'
 import { onClickOutside } from '@vueuse/core'
-import { useTemplateRef } from 'vue'
-const showSelectIconTooltip = defineModel<boolean>({ required: true })
-const selectedIconNumber = defineModel<number>('selected-icon-number', { required: true })
+import { inject, useTemplateRef } from 'vue'
+import { SELECTED_ICON_NUMBER, SHOW_SELECT_ICON_TOOLTIP } from '.'
+
+const showSelectIconTooltip = inject(SHOW_SELECT_ICON_TOOLTIP)!
+
+const selectedIconNumber = inject(SELECTED_ICON_NUMBER)!
 
 const modal = useTemplateRef('select-icon-wrapper')
 onClickOutside(modal, () => {
   showSelectIconTooltip.value = false
 })
+function selectIconAndCloseList(iconId: number) {
+  selectedIconNumber.value = iconId
+  showSelectIconTooltip.value = false
+}
 </script>
 
 <template>
@@ -23,7 +30,7 @@ onClickOutside(modal, () => {
             v-for="i in 31"
             class="size-6 cursor-pointer bg-transparent transition-colors box-content rounded-md p-2 hover:bg-slate-100 border"
             :class="selectedIconNumber === i ? 'bg-slate-100 border-slate-300' : 'border-transparent'"
-            @click="selectedIconNumber = i"
+            @click="selectIconAndCloseList(i)"
           >
             <img :src="`/icons/image ${i}.png`" />
           </div>
