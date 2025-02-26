@@ -56,7 +56,7 @@ function removeIcon() {
         :class="{ 'pointer-events-none': showSelectIconTooltip }"
         @click="showSelectIconTooltip = true"
       >
-        <img :src="`/icons/image ${editingField.icon}.png`" />
+        <img :src="`./icons/image ${editingField.icon}.png`" />
       </div>
     </div>
   </div>

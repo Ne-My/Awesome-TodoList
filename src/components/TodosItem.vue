@@ -33,7 +33,7 @@ const { editTodoModal } = useEditModalStore()
         :class="checked ? 'text-slate-400 before:w-[100%]' : 'text-slate-700 before:w-0'"
       >
         <div v-if="icon" class="size-6 flex-center" :class="{ 'opacity-80 grayscale': checked }">
-          <img :src="`icons/image ${icon}.png`" />
+          <img :src="`./icons/image ${icon}.png`" />
         </div>
         {{ name }}
       </div>

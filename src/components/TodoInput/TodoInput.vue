@@ -57,7 +57,7 @@ watch(inputVal, () => {
   >
     <selectIconButton />
     <div v-if="selectedIconNumber > 0" class="size-6 shrink-0 mr-1 flex-center cursor-pointer">
-      <img @click="selectedIconNumber = 0" :src="`/icons/image ${selectedIconNumber}.png`" />
+      <img @click="selectedIconNumber = 0" :src="`./icons/image ${selectedIconNumber}.png`" />
     </div>
     <textInput @add-todo="addTodo" />
     <addButton @add-todo="addTodo" />

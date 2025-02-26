@@ -20,7 +20,7 @@ defineEmits(['icon-select'])
         src="/icons/tick.png"
         class="size-3 absolute left-1/2 -translate-x-1/2 -bottom-1.5"
       />
-      <img :src="`/icons/image ${i}.png`" />
+      <img :src="`./icons/image ${i}.png`" />
     </div>
   </div>
 </template>
