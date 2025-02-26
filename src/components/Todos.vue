@@ -16,7 +16,7 @@ const drag = ref(false)
     <VueDraggable
       v-model="todos"
       group="uncompleted"
-      :animation="100"
+      :animation="200"
       target=".sort-target"
       :delay="200"
       :delay-on-touch-only="true"
