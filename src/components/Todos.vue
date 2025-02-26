@@ -10,7 +10,9 @@ const drag = ref(false)
 </script>
 
 <template>
-  <div class="h-[58vh] sm:h-[45vh] overflow-y-scroll overflow-x-hidden px-3 thin-scroll pb-4">
+  <div
+    class="grow sm:grow-0 sm:h-[45vh] overflow-y-scroll overflow-x-hidden px-3 thin-scroll pb-4 sm:pb-auto mb-12 sm:mb-auto"
+  >
     <VueDraggable
       v-model="todos"
       group="uncompleted"
