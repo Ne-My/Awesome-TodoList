@@ -17,7 +17,7 @@ const { editTodoModal } = useEditModalStore()
 
 <template>
   <div
-    class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden"
+    class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden max-sm:[&.sortable-chosen]:rotate-1"
     @click="editTodoModal(props.todo)"
   >
     <div class="flex items-center gap-2 overflow-hidden w-full">

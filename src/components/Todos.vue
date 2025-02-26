@@ -18,7 +18,8 @@ const drag = ref(false)
       group="uncompleted"
       :animation="100"
       target=".sort-target"
-      delayOnTouchOnly
+      :delay="200"
+      :delay-on-touch-only="true"
       @start="drag = true"
       @end="nextTick(() => (drag = false))"
     >
