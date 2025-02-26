@@ -29,7 +29,7 @@ const { editTodoModal } = useEditModalStore()
         <IconCheck v-if="checked" class="size-4 [&>path]:stroke-emerald-500" />
       </div>
       <div
-        class="text-sm font-semibold transition-colors before-line-through line-clamp-1 w-full flex gap-1.5"
+        class="text-sm font-semibold transition-colors before-line-through line-clamp-1 w-full flex gap-1.5 items-center"
         :class="checked ? 'text-slate-400 before:w-[100%]' : 'text-slate-700 before:w-0'"
       >
         <div v-if="icon" class="size-6 flex-center" :class="{ 'opacity-80 grayscale': checked }">
