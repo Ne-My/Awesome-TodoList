@@ -9,7 +9,7 @@ import SelectIcon from './selectIcon.vue'
 const editModal = useEditModalStore()
 const { openModal, editingField, errors } = storeToRefs(editModal)
 
-const modal = useTemplateRef('modal')
+const modal = ref<HTMLDivElement>()
 onClickOutside(modal, () => {
   openModal.value = false
   showSelectIconTooltip.value = false
@@ -25,10 +25,10 @@ watch(
   },
 )
 
-const titleInputRef = useTemplateRef('title')
+const titleInputRef = ref<HTMLInputElement>()
 whenever(openModal, async () => {
   await nextTick()
-  titleInputRef.value?.focus()
+  titleInputRef.value?.focus?.()
 })
 </script>
 
@@ -45,7 +45,7 @@ whenever(openModal, async () => {
           <div class="w-full flex items-center border border-slate-300 rounded-lg p-2 h-11 gap-2">
             <select-icon />
             <input
-              ref="title"
+              ref="titleInputRef"
               class="h-full bg-white outline-hidden w-full text-sm"
               placeholder="Enter title of todo"
               v-model="editingField.name"

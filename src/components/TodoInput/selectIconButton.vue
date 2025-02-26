@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconSmile from '@/components/icons/IconSmile.vue'
 import { onClickOutside } from '@vueuse/core'
-import { inject, useTemplateRef } from 'vue'
+import { inject, ref, useTemplateRef } from 'vue'
 import { SELECTED_ICON_NUMBER, SHOW_SELECT_ICON_TOOLTIP } from '.'
 import SelectIconsList from '@/components/SelectIconsList.vue'
 
@@ -9,7 +9,7 @@ const showSelectIconTooltip = inject(SHOW_SELECT_ICON_TOOLTIP)!
 
 const selectedIconNumber = inject(SELECTED_ICON_NUMBER)!
 
-const modal = useTemplateRef('select-icon-wrapper')
+const modal = ref<HTMLDivElement>()
 onClickOutside(modal, () => {
   showSelectIconTooltip.value = false
 })
@@ -20,7 +20,7 @@ function selectIconAndCloseList(iconId: number) {
 </script>
 
 <template>
-  <div class="relative h-full aspect-square" ref="select-icon-wrapper">
+  <div class="relative h-full aspect-square" ref="modal">
     <Transition name="fade">
       <div
         v-if="showSelectIconTooltip"

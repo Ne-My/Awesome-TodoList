@@ -2,7 +2,7 @@
 import { useEditModalStore } from '@/stores/editModalStore'
 import { onClickOutside } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { inject, useTemplateRef } from 'vue'
+import { inject, ref, useTemplateRef } from 'vue'
 import IconSmile from '@/components/icons/IconSmile.vue'
 import SelectIconsList from '@/components/SelectIconsList.vue'
 import { SHOW_SELECT_ICON_TOOLTIP } from '.'
@@ -10,7 +10,7 @@ import { SHOW_SELECT_ICON_TOOLTIP } from '.'
 const { editingField } = storeToRefs(useEditModalStore())
 const showSelectIconTooltip = inject(SHOW_SELECT_ICON_TOOLTIP)!
 
-const selectIconRef = useTemplateRef('select-icon-ref')
+const selectIconRef = ref<HTMLDivElement>()
 onClickOutside(selectIconRef, () => (showSelectIconTooltip.value = false))
 
 function selectIconAndCloseList(iconId: number) {
@@ -29,7 +29,7 @@ function removeIcon() {
     <Transition name="fade">
       <div
         v-if="showSelectIconTooltip"
-        ref="select-icon-ref"
+        ref="selectIconRef"
         class="absolute top-9 -left-2 bg-white font-medium text-xs text-slate-900 rounded-lg px-3 py-4 z-30 drop-shadow-[0_12px_15px_rgb(0_0_0/0.15)] border-1 border-slate-300"
       >
         <div
