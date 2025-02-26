@@ -2,6 +2,7 @@
 import { useTodoStore } from '@/stores/todoStore'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import Github from '@/components/Github.vue'
 
 const todoStore = useTodoStore()
 const { todos } = storeToRefs(todoStore)
@@ -11,7 +12,8 @@ const unCompeletedTodosCount = computed(() => todos.value.length - compeletedTod
 
 <template>
   <div class="flex flex-col items-center gap-4">
-    <div class="flex flex-col text-center">
+    <div class="flex flex-col items-center">
+      <Github />
       <h1 class="text-xl font-bold text-slate-700">Awesome TodoList</h1>
       <span class="text-[12px] text-slate-400">Add anything you want and have full controll on them!</span>
     </div>
