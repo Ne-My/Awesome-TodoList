@@ -2,7 +2,7 @@
 import { useEditModalStore } from '@/stores/editModalStore'
 import { onClickOutside } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { inject, ref, useTemplateRef } from 'vue'
+import { inject, ref } from 'vue'
 import IconSmile from '@/components/icons/IconSmile.vue'
 import SelectIconsList from '@/components/SelectIconsList.vue'
 import { SHOW_SELECT_ICON_TOOLTIP } from '.'

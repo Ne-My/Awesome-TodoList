@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import IconSmile from '@/components/icons/IconSmile.vue'
 import { onClickOutside } from '@vueuse/core'
-import { inject, ref, useTemplateRef } from 'vue'
+import { inject, ref } from 'vue'
 import { SELECTED_ICON_NUMBER, SHOW_SELECT_ICON_TOOLTIP } from '.'
 import SelectIconsList from '@/components/SelectIconsList.vue'
 

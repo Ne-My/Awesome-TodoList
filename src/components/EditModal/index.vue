@@ -2,7 +2,7 @@
 import { useEditModalStore } from '@/stores/editModalStore'
 import { onClickOutside, whenever } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { nextTick, provide, ref, useTemplateRef, watch } from 'vue'
+import { nextTick, provide, ref, watch } from 'vue'
 import { SHOW_SELECT_ICON_TOOLTIP } from '.'
 import SelectIcon from './selectIcon.vue'
 
