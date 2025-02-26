@@ -11,14 +11,15 @@ const drag = ref(false)
 
 <template>
   <div
-    class="grow sm:grow-0 sm:h-[45vh] overflow-y-scroll overflow-x-hidden px-3 thin-scroll pb-4 sm:pb-auto mb-12 sm:mb-auto"
+    class="grow sm:grow-0 sm:h-[45vh] overflow-y-scroll overflow-x-hidden px-3 thin-scroll pb-4 sm:pb-auto mb-12 sm:mb-auto pt-2"
   >
     <VueDraggable
       v-model="todos"
       group="uncompleted"
       :animation="100"
-      @start="drag = true"
       target=".sort-target"
+      delayOnTouchOnly
+      @start="drag = true"
       @end="nextTick(() => (drag = false))"
     >
       <transition-group tag="div" :name="!drag ? 'todo' : undefined" class="sort-target flex flex-col gap-3 relative">
