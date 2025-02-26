@@ -27,7 +27,7 @@ export default defineConfig({
         enabled: true,
       },
       includeManifestIcons: false,
-      includeAssets: ['public/icons/*.{png,svg}', 'github.svg', 'favicon.ico'],
+      includeAssets: ['icons/*.{png,svg}', 'github.svg', 'favicon.ico'],
     }),
   ],
   resolve: {
