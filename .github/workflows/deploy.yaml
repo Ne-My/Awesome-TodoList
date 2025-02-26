@@ -1,0 +1,43 @@
+name: Deploy Awesome TodoList
+
+on:
+  push:
+    tags:
+      - v*
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.20.5
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.2
+
+      - name: Build Project
+        run: |
+          pnpm install
+          pnpm build
+
+      - name: Upload to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_KEY }}
+          rm: true
+          source: dist
+          target: ${{ secrets.MAIN_PATH }}
+          strip_components: 1
