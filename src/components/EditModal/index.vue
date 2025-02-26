@@ -30,6 +30,10 @@ whenever(openModal, async () => {
   await nextTick()
   titleInputRef.value?.focus?.()
 })
+
+function submitEdit(e: KeyboardEvent) {
+  if (e.key === 'Enter') editModal.editTodo()
+}
 </script>
 
 <template>
@@ -41,15 +45,15 @@ whenever(openModal, async () => {
       >
         <!-- title -->
         <div class="flex flex-col gap-2">
-          <span class="text-slate-800 font-medium text-sm">Title :</span>
+          <span class="text-slate-500 font-medium text-sm">Title :</span>
           <div class="w-full flex items-center border border-slate-300 rounded-lg p-2 h-11 gap-2">
             <select-icon />
             <input
               ref="titleInputRef"
-              class="h-full bg-white outline-hidden w-full text-sm"
+              class="h-full bg-white outline-hidden w-full text-sm font-medium text-slate-800"
               placeholder="Enter title of todo"
               v-model="editingField.name"
-              @keydown.enter="editModal.editTodo()"
+              @keydown="submitEdit"
             />
           </div>
           <div v-if="errors.title" class="text-xs font-light">This field can't be empty!</div>
@@ -57,9 +61,10 @@ whenever(openModal, async () => {
 
         <!-- note -->
         <div class="flex flex-col gap-2">
-          <span class="text-slate-800 font-medium text-sm">Note (Optional):</span>
+          <span class="text-slate-500 font-medium text-sm">Note (Optional):</span>
           <textarea
-            class="bg-white outline-hidden rounded-lg border border-slate-300 p-2 w-full resize-y text-sm"
+            class="bg-white outline-hidden rounded-lg border border-slate-300 p-2 w-full resize-y text-sm font-medium text-slate-800"
+            rows="4"
             placeholder="Enter todo Note"
             v-model="editingField.note"
           />
