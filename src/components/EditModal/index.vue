@@ -37,7 +37,7 @@ whenever(openModal, async () => {
     <div v-if="openModal" class="fixed inset-0 bg-black/50 z-40 flex-center cursor-pointer">
       <div
         ref="modal"
-        class="w-screen max-w-[470px] bg-white rounded-xl shadow-2xl z-50 p-6 flex flex-col gap-6 get-up-animation cursor-auto"
+        class="w-[90vw] max-w-[470px] bg-white rounded-xl shadow-2xl z-50 p-6 flex flex-col gap-6 get-up-animation cursor-auto"
       >
         <!-- title -->
         <div class="flex flex-col gap-2">
