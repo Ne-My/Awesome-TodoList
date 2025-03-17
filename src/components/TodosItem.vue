@@ -17,7 +17,7 @@ const { editTodoModal } = useEditModalStore()
 
 <template>
   <div
-    class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden max-sm:[&.sortable-chosen]:rotate-1"
+    class="group bg-white flex items-center justify-between gap-4 rounded-xl shadow-lg px-4 py-3 cursor-pointer border border-slate-300 overflow-hidden max-sm:[&.sortable-chosen]:rotate-1 h-[50px]"
     @click="editTodoModal(props.todo)"
   >
     <div class="flex items-center gap-2 overflow-hidden w-full">
@@ -39,8 +39,8 @@ const { editTodoModal } = useEditModalStore()
       </div>
     </div>
 
-    <div>
-      <IconTrash class="cursor-pointer size-5 hover:[&>path]:stroke-rose-600" @click.stop="deleteTodo(id)" />
+    <div class="cursor-pointer size-8 flex-center group/delete translate-x-2" @click.stop="deleteTodo(id)">
+      <IconTrash class="size-5 group-hover/delete:[&_path]:stroke-rose-600" />
     </div>
   </div>
 </template>
