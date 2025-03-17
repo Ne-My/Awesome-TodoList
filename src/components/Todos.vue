@@ -11,7 +11,7 @@ const drag = ref(false)
 
 <template>
   <div
-    class="grow sm:grow-0 sm:h-[45dvh] overflow-y-scroll overflow-x-hidden px-3 thin-scroll scrollbar-gray-300 pb-4 sm:pb-auto mb-12 sm:mb-auto pt-2 select-none"
+    class="grow sm:grow-0 sm:h-[45dvh] overflow-y-scroll overflow-x-hidden pr-3 pl-5 thin-scroll scrollbar-gray-300 pb-4 sm:pb-auto mb-12 sm:mb-auto pt-2 select-none"
   >
     <VueDraggable
       v-model="todos"
