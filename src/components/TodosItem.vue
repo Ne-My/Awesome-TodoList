@@ -22,7 +22,7 @@ const { editTodoModal } = useEditModalStore()
   >
     <div class="flex items-center gap-2 overflow-hidden w-full">
       <div
-        class="shrink-0 size-6 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
+        class="shrink-0 size-6.5 bg-slate-50 border border-slate-300 rounded-md flex items-center justify-center"
         :class="{ 'bg-emerald-200 border-0': checked }"
         @click.stop="checked = !checked"
       >
