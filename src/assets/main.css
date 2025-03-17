@@ -3,6 +3,10 @@
 @utility thin-scroll {
   scrollbar-width: thin;
 }
+@utility scrollbar-* {
+  scrollbar-color: --value(--color-*) transparent;
+  scrollbar-color: --value([*]) transparent;
+}
 
 @utility flex-center {
   @apply flex items-center justify-center;
