@@ -68,7 +68,7 @@ function submitEdit(e: KeyboardEvent) {
         <div class="flex flex-col gap-2">
           <span class="text-slate-600 font-semibold text-sm">Note (Optional):</span>
           <textarea
-            class="bg-white outline-hidden rounded-lg border border-slate-300 p-2 w-full resize-none scrollbar-gray-300 text-sm font-medium text-slate-800"
+            class="bg-white outline-hidden rounded-lg border border-slate-300 p-2 w-full resize-none text-sm font-medium text-slate-800"
             rows="4"
             placeholder="Enter todo Note"
             v-model="editingField.note"

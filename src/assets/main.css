@@ -21,8 +21,11 @@
   @apply absolute position-center;
 }
 
-@layer components {
+@layer base {
   html {
     font-family: Poppins;
+  }
+  * {
+    @apply scrollbar-gray-300;
   }
 }
